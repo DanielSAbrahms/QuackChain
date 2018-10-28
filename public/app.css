@@ -1,0 +1,138 @@
+/* Globals */
+a,a:focus,a:hover{
+    color:#fff;
+}
+
+html,body{
+    height:100%;
+    background-color: var(--main-bg-color);
+}
+
+body{
+    color:var(--font-color-fg);
+    text-align:center;
+}
+.hide{
+    display:none;
+}
+.landing-heading{
+    font-family:'Source Code Pro',monospace;
+    font-weight:400;
+}
+
+/* Buttons */
+.btn{
+    font-family:'Source Code Pro',monospace;
+    padding:0.5625rem 2.5rem;
+    font-size:0.8125rem;
+    font-weight:400;
+    border: none !important;
+    line-height:1.75rem;
+    -webkit-transition:all .2s ease-in-out;
+    -moz-transition:all .2s ease-in-out;
+    -ms-transition:all .2s ease-in-out;-o-transition:all .2s ease-in-out;transition:all .2s ease-in-out;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+.btn-lg{
+    font-size:0.875rem;
+    padding:0.6875rem 3.4375rem;
+    line-height:1.75rem;
+}
+.btn:focus,.btn:active:focus,.btn.active:focus{
+    outline:none;
+}
+.btn-primary{
+    font-size: 20px;
+    padding-left: 10px;;
+    padding-right: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    align-content: center;
+    color: var(--font-color-button);
+    background-color:var(--secondary-pm-color);
+    border-radius:100px;
+    width: auto;
+    min-width: 150px;
+}
+.btn-primary:hover,.btn-primary:focus,.btn-primary:active{
+    color:var(--font-color-button);
+    /* border:1px solid #2C96FF; */
+    background-color:var(--secondary-pm-color-hover);
+}
+
+#logo_image {
+    height: 100px;
+    width: auto;
+    float: left;
+    margin-left: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#signout-button {
+    float: right;
+    margin-right: 30px;
+    margin-top: 30px;
+}
+
+/* Avatar */
+.avatar{
+    width:100px;
+    height:100px;
+}
+.avatar-section{
+    margin-bottom:25px;
+    border-radius: 50px;
+}
+
+#top_info {
+    vertical-align: middle;
+    border-bottom: solid var(--secondary-pm-color) 1px;
+    border-radius: 10px;
+}
+
+/* Scaffolding */
+.site-wrapper{
+    display:table;
+    width:100%;
+    height:100%;
+    min-height:100%;
+}
+.site-wrapper-inner{
+    margin-top: 35px;
+    margin-right:auto;
+    margin-left:auto;
+    width:100%;
+
+}
+.panel-authed{
+    padding:0 0 0 0;
+}
+
+/* Home button */
+.btn-home-hello{
+    position:absolute;
+    font-family:'Source Code Pro',monospace;
+    font-size:11px;
+    font-weight:400;
+    color:var(--font-color-fg);
+    top:15px;
+    left:15px;
+    padding:3px 20px;
+    background-color:rgba(255,255,255,0.15);
+    border-radius:6px;
+    -webkit-box-shadow:0px 0px 20px 0px rgba(0,0,0,0.15);
+    -moz-box-shadow:0px 0px 20px 0px rgba(0,0,0,0.15);
+    box-shadow:0px 0px 20px 0px rgba(0,0,0,0.15);
+}
+
+:root {
+  --main-bg-color: white;
+  --secondary-pm-color: #92d050;
+  --secondary-pm-color-hover: #b0ff5c;
+  --font-color-fg: #454644;
+  --font-color-button: #fff;
+}

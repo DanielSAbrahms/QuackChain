@@ -1,0 +1,31 @@
+{
+  "name": "hello-blockstack",
+  "version": "0.0.0",
+  "description": "A simple Blockstack app",
+  "main": "index.js",
+  "scripts": {
+    "build": "browserify requires.js -o public/bundle.js",
+    "start": "npm run build && node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blockstack/hello-blockstack.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blockstack/hello-blockstack/issues"
+  },
+  "homepage": "https://github.com/blockstack/hello-blockstack#readme",
+  "devDependencies": {
+    "express": "^4.15.2",
+    "opn": "^4.0.2"
+  },
+  "dependencies": {
+    "blockstack": "17.2.0",
+    "jquery": "^3.3.1",
+    "jquery-ui-dist": "^1.12.1",
+    "jqueryui": "^1.11.1",
+    "minimatch": "^3.0.4"
+  }
+}

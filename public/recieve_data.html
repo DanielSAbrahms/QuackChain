@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Recieve Data</title>
+  <link rel="stylesheet" href="bootstrap.min.css" />
+  <link rel="stylesheet" href="app.css" />
+  <script src="bundle.js"></script>
+  <script src="app.js"></script>
+
+</head>
+<body>
+    <div class="row" id="top_info">
+        <img src="logo.png" alt="QuackChain Logo Copy, right?" id="logo_image">
+        <a href="#" class="btn btn-primary btn-lg" id="signout-button" style="display:none;">
+          Logout
+      </a>
+    </div>
+  <div class="site-wrapper">
+    <div class="site-wrapper-inner">
+      <div class="panel-landing">
+        <h1 class="landing-heading">Who would you like to recieve data from?</h1>
+      </div>
+      <div id="form_wrapper">
+          <form name="myForm">
+              <div class="row">
+                  <label style="color: black;" for="id_sender">Please enter BlockStack ID of Patient</label>
+                  <div class="row">&nbsp;</div>
+                  <input style="width:30%; color: black;" id="id_sender"></input>
+              </div>
+              <div class="row">&nbsp;</div>
+              <a class="btn btn-primary btn-lg" id="recieve_data">
+                  Submit
+              </a>
+              <script>
+                  var JSON_data, patient_id;
+                  var username = blockstack.loadUserData().username;
+                  $("#recieve_data").on("click", function() {
+                      const Url = "Https://putinsidebigchain.localtunnel.me/put_in";
+                      const data = {name: username, id:23};
+                      $.ajax({
+                          url:Url,
+                          type:"GET",
+                          dataType: "TXT",
+                          success: function(result){
+                              JSON_data = result
+                          },
+                          headers: {
+                            "oref":data,
+                            "Access-Control-Allow-Origin": Url
+                        },
+                          error: function(error){
+                              console.log("error ${error}");
+                          }
+                      })
+
+
+                      patient_id = $("#id_sender").val();
+                      console.log("Patient ID: " + patient_id);
+                      blockstack.getFile('data-'+username+'.txt', { username: patient_id }).then(function(data) {
+                          console.log(data);
+                      })
+                  })
+              </script>
+
+          </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

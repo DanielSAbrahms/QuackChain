@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Send Data</title>
+    <link rel="stylesheet" href="bootstrap.min.css" />
+    <link rel="stylesheet" href="app.css" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="bundle.js"></script>
+    <script src="app.js"></script>
+
+</head>
+<body>
+    <div class="row" id="top_info">
+        <img src="logo.png" alt="QuackChain Logo Copy, right?" id="logo_image">
+        <a href="#" class="btn btn-primary btn-lg" id="signout-button" style="display:none;">
+            Logout
+        </a>
+    </div>
+    <div class="site-wrapper">
+        <div class="site-wrapper-inner">
+            <div class="panel-landing">
+                <h1 class="landing-heading">Who would you like to send data to?</h1>
+            </div>
+
+            <div id="form_wrapper">
+                <form name="myForm">
+                    <!-- <div class="row">
+                    <label style="color: black;" for="JSON_data">Please Paste JSON Data</label>
+                    <div class="row">&nbsp;</div>
+                    <textarea style="width:80%; color: black;" id="JSON_data" rows="12"></textarea>
+                </div> -->
+                <div class="row">&nbsp;</div>
+                <div class="row">
+                    <label style="color: black;" for="id_recipient">Please enter BlockStack ID of Doctor</label>
+                    <div class="row">&nbsp;</div>
+                    <input style="width:30%; color: black;" id="id_recipient"></input>
+                </div>
+                <div class="row">&nbsp;</div>
+
+                <div class="row">&nbsp;</div>
+                <a class="btn btn-primary btn-lg" id="send_data">
+                    Send!
+                </a>
+                <script>
+                var doctor_id, oref;
+                $("#send_data").on("click", function(evt) {
+                    evt.preventDefault();
+                    oref = blockstack.loadUserData().username;
+
+                    const Url = "Https://putinsidebigchain.localtunnel.me/put_in";
+                    const data = {name: oref, id:23};
+                    $.ajax({
+                        url:Url,
+                        type:"POST",
+                        dataType: "TXT",
+                        success: function(result){
+                            console.log(result)
+                        },
+                        headers: {
+                          "oref":data,
+                          "Access-Control-Allow-Origin": Url
+                      },
+                        error: function(error){
+                            console.log("error ${error}");
+                        }
+                    })
+
+
+                    doctor_id = $("#id_recipient").val();
+                    console.log("Doctor ID: " + doctor_id);
+                    console.log("Data: " + data);
+                    blockstack.getFile('public_key.txt', { decrypt: false, username: doctor_id }).then(function(publicKey){
+                        console.log('public key', publicKey);
+                        var encryptedData = window.encryptECIES(publicKey, oref);
+                        console.log('encrypted data', encryptedData)
+                        blockstack.putFile('data-'+doctor_id+'.txt', JSON.stringify(encryptedData), { encrypt: false }).then(function(gaiaUrl){
+                            console.log('Stored encrypted data at', gaiaUrl);
+                        });
+                    })
+                })
+            </script>
+
+        </form>
+    </div>
+</div>
+</div>
+</body>
+</html>
