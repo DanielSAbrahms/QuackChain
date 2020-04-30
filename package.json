@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "blockstack": "17.2.0",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "jquery-ui-dist": "^1.12.1",
     "jqueryui": "^1.11.1",
     "minimatch": "^3.0.4"
